@@ -1,0 +1,49 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}{{ title|default:"django-users2"}}{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- 新 Bootstrap 核心 CSS 文件 -->
+        <link href="/static/admin/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- 可选的Bootstrap主题文件（一般不使用） -->
+        <script src="/static/admin/css/bootstrap-theme.min.css"></script>
+
+
+        <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+        <link rel="stylesheet" type="text/css" href="/static/admin/css/login.css">
+	<meta name="description" content="">
+	<meta name="author" content="">
+</head>
+<body class="login" data-admin-utc-offset="0">
+<!-- Container -->
+<div id="container">
+<!-- header -->
+<div id="header">
+	<div id="branding">
+		<h1 id="site-name">
+		<a class="navbar-brand" href="/accounts/login/">Users Login</a>
+		</h1>
+	</div>
+</div>
+<!--end header-->
+
+<!-- content -->
+<div id="content" class="colM">
+	{% if messages %}
+		{% for message in messages %}
+			<div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+		{% endfor %}
+	{% endif %}
+	{% block content %}
+		<p>Use this template get you up and running with django-users2.</p>
+	{% endblock content %}
+
+     <br class="clear" />
+</div>
+<!-- end content-->
+</div>
+</body>
+</html>

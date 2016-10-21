@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> Upload </title>
+        <!-- 新 Bootstrap 核心 CSS 文件 -->
+        <link href="/static/admin/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- 可选的Bootstrap主题文件（一般不使用） -->
+        <script src="/static/admin/css/bootstrap-theme.min.css"></script>
+
+</head>
+<body>
+<div align="right"><a href="/accounts/logout/">log out</a><div>
+<h2 align="center">Release Iso</h2>
+<div class="table-responsive">
+<table class="table">
+	<thead>
+	<tr>
+		<th> id  </th>
+		<th> version </th>
+		<th> ownername </th>
+		<th> isofile </th>
+		<th> state </th>
+	</tr>
+	</thead>
+	<tbody>
+	{% for item in query_results %}
+	<tr>
+		<td> {{ item.id }} </td>
+		<td> {{ item.version }} </td>
+		<td> {{ item.ownername }}</td>
+		<td> {{ item.isofile }}</td>
+		{% if item.release == "false" %}
+		<td> pre release </td>	
+		{% else %}
+		<td>released</td>
+		{% endif %}
+	</tr>
+	{% endfor %}
+	</tbody>
+</table>
+</div>
+</body>
+</html>

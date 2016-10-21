@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> Upload </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- 新 Bootstrap 核心 CSS 文件 -->
+        <link href="/static/admin/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- 可选的Bootstrap主题文件（一般不使用） -->
+        <script src="/static/admin/css/bootstrap-theme.min.css"></script>
+        <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+        <link rel="stylesheet" type="text/css" href="/static/admin/css/login.css">
+
+</head>
+<body class="login" data-admin-utc-offset="0">
+<! --container-->
+<div id="container">
+<div id="header">
+	<div id="branding">
+		<h1 id="site-name">
+		<a class="navbar-brand" href="/control_admin/"> upload iso </a>
+		</h1>
+	</div>
+</div>
+
+<!--content-->
+<div id="content" class="colM">
+<div id="content-main">
+
+<form method="POST" enctype="multipart/form-data" id="login-form">
+	<div class="form-row" >
+	{% csrf_token %}
+	{{ uf.as_p }}
+	</div>
+	<div class="submit-row">
+		<input type="submit" value="Submit">
+	</div>
+</form>
+	<br class="clear" />
+</div>
+</div>
+<!--end content -->
+</div>
+<!--end container-->
+</body>
+</html>
